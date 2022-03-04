@@ -53,6 +53,12 @@ const userController = {
       })
       .catch((err) => res.status(400).json(err));
   },
+
+  // POST to add a new friend
+  createFriend({ params }, res) {},
+
+  // DELETE to delete a friend
+  deleteFriend(req, res) {},
 };
 
 module.exports = userController;
