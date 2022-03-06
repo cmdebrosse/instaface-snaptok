@@ -4,10 +4,6 @@ const userController = {
   // Gets all users
   getAllUsers(req, res) {
     User.find()
-      .populate({
-        path: "userThoughts",
-        select: "-__v",
-      })
       .select("-__v")
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.status(400).json(err));
