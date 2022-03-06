@@ -1,11 +1,14 @@
-const { Schema } = require("mongoose");
-const dateFormat = require("dateformat");
+const { Schema, Types } = require("mongoose");
+// const dateFormat = require("dateformat");
 
-const now = new Date();
+// const now = new Date();
 
 const ReactionSchema = new Schema(
   {
-    reactionId: {},
+    reactionId: {
+      type: Types.ObjectId,
+      default: new Types.ObjectId(),
+    },
 
     reactionBody: {
       type: String,
@@ -13,7 +16,7 @@ const ReactionSchema = new Schema(
       maxlength: 280,
     },
 
-    username: {
+    userName: {
       type: String,
       required: true,
     },
@@ -21,7 +24,7 @@ const ReactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (createdTime) => dateFormat(now, "ddd, mmm dS, yyy, h:MM TT"),
+      // get: (createdTime) => dateFormat(now, "ddd, mmm dS, yyy, h:MM TT"),
     },
   },
 
